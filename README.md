@@ -78,6 +78,12 @@ volumeBindingMode: WaitForFirstConsumer
 ```
 
 ### Install gocd helm:
+
+#### configure helm to work with microk8s kubectl
+```
+kubectl config view --raw > ~/.kube/config
+```
+#### install
 ```
 helm install gocd gocd/gocd --namespace gocd --set server.persistence.storageClass=gocd-sc
 ```
