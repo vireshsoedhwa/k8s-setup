@@ -7,6 +7,10 @@ or
 ```
 kubectl create token default --duration=50000s
 ```
+or
+```
+microk8s kubectl describe secret -n kube-system microk8s-dashboard-token
+```
 ### change to NodePort to access from localnetwork:
 ```
 kubectl -n kube-system edit service kubernetes-dashboard
