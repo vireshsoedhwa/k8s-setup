@@ -59,6 +59,10 @@ data:
 ```
 rewrite name prefix example.com [ip-of-cluster].kubernetes.default.svc.cluster.local
 ```
+or regex to capture all the subdomains:
+```
+rewrite name regex (.*)\\.wieru\\.com 192-168-0-9.kubernetes.default.svc.cluster.local
+```
 
 - [Some more explanation](https://therubyist.org/2021/02/20/cert-manager-nat-loopback-and-coredns/)
 - check out [CoreDNS plugins doc](https://coredns.io/plugins/rewrite/).
