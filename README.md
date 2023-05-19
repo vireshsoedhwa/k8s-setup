@@ -164,3 +164,24 @@ metadata:
   labels:
     kubernetes.io/metadata.name: plweb
 ```
+
+### Create Cert manager clusterissuer
+
+```
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt-prod
+spec:
+  acme:
+    server: https://acme-v02.api.letsencrypt.org/directory
+#change to your email
+    email: wieriekenshin@gmail.com
+    privateKeySecretRef:
+       name: letsencrypt-prod
+    solvers:
+    - http01:
+        ingress:
+          class: public
+```
+
