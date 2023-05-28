@@ -185,3 +185,11 @@ spec:
           class: public
 ```
 
+### Docker htpasswd file
+```
+htpasswd -Bbn dockeruser dockerpassword > ./registry-htpasswd
+```
+and then 
+```
+kubectl create secret generic auth-secret --from-file=./registry-htpasswd -n registry
+```
