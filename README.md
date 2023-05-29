@@ -185,11 +185,14 @@ spec:
           class: public
 ```
 
-### Docker htpasswd file
+### Docker creds 
 ```
 htpasswd -Bbn dockeruser dockerpassword > ./registry-htpasswd
 ```
 and then 
 ```
 kubectl create secret generic auth-secret --from-file=./registry-htpasswd -n registry
+```
+```
+kubectl create -n default secret docker-registry regcred --docker-server=docker-registry.devops-tools:5000 --docker-username=dockeruser --docker-password=dockerpassword --docker-email=wieriekenshin@gmail.com --namespace=devops-tools
 ```
