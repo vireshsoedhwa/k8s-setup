@@ -11,6 +11,17 @@ or
 ```
 microk8s kubectl describe secret -n kube-system microk8s-dashboard-token
 ```
+### logout timout 
+```
+
+    spec:
+      containers:
+      - args:
+        - --auto-generate-certificates
+        - --namespace=kubernetes-dashboard
+        - --token-ttl=0 # <-- add this with your timeout
+      image: kubernetesui/dashboard:v2.0.0
+```
 ### change to NodePort to access from localnetwork:
 ```
 kubectl -n kube-system edit service kubernetes-dashboard
